@@ -1,3 +1,2 @@
 # To-Do-list
-dharmi
-kanal
+todo list
