@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <title>TO-DO APP</title>
+<style>
+    body{
+       background-size: 100% 100 %;
+       background-attachment: fixed;
+    }
+</style>
+</head>
+
+<body background="https://cdn.hipwallpaper.com/i/29/12/5zRpa4.jpg"> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #0e8ee9;">
+        <a class="navbar-brand"  href="#">TO-DO APP</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'login' %}">Login<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'signup' %}">Sign-up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+              </li>
+          </ul>
+        </div>
+        <span class="navbar-text">
+          <b>" Have A GOOD Intensions & WORK Hard "</b>
+       </span>
+      </nav>
+<br><br>    
+  
+  
+   
+    <div class="container">
+        <h4 style="color: palevioletred ;"> YOUR TO-DO LIST </h4>
+        <h3 style="color: palegreen;">________________________________________________________________________________________________</h3>
+        <br> <br>
+        <a class="waves-effect waves-light btn green" href="{% url 'add' %}">Add TO-DO </a>
+<br>  <br><br>
+
+        {% for mems in m %}
+           <form action="/delete/{{ mems.id }}/" method="POST">
+            {% csrf_token %}
+            <p style="color: antiquewhite;">{{ mems.date }}</p>
+            <h5 class="red-text">{{ mems.content }}</h5>
+        <input class="btn btn-primary" type="submit" value="Delete">
+            <h3 style="color: rgb(228, 6, 236);">_________________________________</h3>
+            </form>
+            
+        {% endfor %}
+ <br> <br>
+
+        <a class="waves-effect waves-light btn red" href="{% url 'logout' %}">Logout !!</a>
+
+</body>
+
+</html>

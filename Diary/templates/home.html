@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd"
+    >
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>TO-DO APP</title>
+
+    <style>
+    
+    * { box-sizing:border-box; }
+
+body {
+	font-family: Helvetica;
+	background-size: 100% 100%;
+  background-attachment: fixed;
+}
+
+hgroup { 
+	text-align:center;
+	margin-top: 4em;
+}
+
+h1, h3 { font-weight: 300; }
+
+h1 { color: #636363; }
+
+h4 { color: #D63031; }
+
+
+    </style>
+    <style type="text/css">
+      #wrapper {
+          width:450px;
+          margin:0 auto;
+          font-family:Verdana, sans-serif;
+      }
+      legend {
+          color:#0481b1;
+          font-size:16px;
+          padding:0 10px;
+          background:#fff;
+          -moz-border-radius:4px;
+          box-shadow: 0 1px 5px rgba(4, 129, 177, 0.5);
+          padding:5px 10px;
+          text-transform:uppercase;
+          font-family:Helvetica, sans-serif;
+          font-weight:bold;
+      }
+      fieldset {
+          border-radius:4px;
+          background: #fff; 
+          background: -moz-linear-gradient(#fff, #f9fdff);
+          background: -o-linear-gradient(#fff, #f9fdff);
+          background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#f9fdff)); /
+          background: -webkit-linear-gradient(#fff, #f9fdff);
+          padding:20px;
+          border-color:rgba(4, 129, 177, 0.4);
+      }
+      input,
+      textarea {
+          color: #373737;
+          background: #fff;
+          border: 1px solid #CCCCCC;
+          color: #aaa;
+          font-size: 14px;
+          line-height: 1.2em;
+          margin-bottom:15px;
+  
+          -moz-border-radius:4px;
+          -webkit-border-radius:4px;
+          border-radius:4px;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset, 0 1px 0 rgba(255, 255, 255, 0.2);
+      }
+      input[type="text"],
+      input[type="password"]{
+          padding: 8px 6px;
+          height: 30px;
+          width:280px;
+      }
+      input[type="text"]:focus,
+      input[type="password"]:focus {
+          background:#f5fcfe;
+          text-indent: 0;
+          z-index: 1;
+          color: #373737;
+          -webkit-transition-duration: 400ms;
+          -webkit-transition-property: width, background;
+          -webkit-transition-timing-function: ease;
+          -moz-transition-duration: 400ms;
+          -moz-transition-property: width, background;
+          -moz-transition-timing-function: ease;
+          -o-transition-duration: 400ms;
+          -o-transition-property: width, background;
+          -o-transition-timing-function: ease;
+          width: 380px;
+          
+          border-color:#ccc;
+          box-shadow:0 0 5px rgba(4, 129, 177, 0.5);
+          opacity:0.6;
+      }
+      input[type="submit"]{
+          background: #222;
+          border: none;
+          text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+          text-transform:uppercase;
+          color: #eee;
+          cursor: pointer;
+          font-size: 15px;
+          margin: 5px 0;
+          padding: 5px 22px;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+          -webkit-border-radius:4px;
+          -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+          -moz-box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+          box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+      }
+      textarea {
+          padding:3px;
+          width:96%;
+          height:100px;
+      }
+      textarea:focus {
+          background:#ebf8fd;
+          text-indent: 0;
+          z-index: 1;
+          color: #373737;
+          opacity:0.6;
+          box-shadow:0 0 5px rgba(4, 129, 177, 0.5);
+          border-color:#ccc;
+      }
+      .small {
+          line-height:14px;
+          font-size:12px;
+          color:#999898;
+          margin-bottom:3px;
+      }
+  </style>
+
+</head>
+
+<body background="https://cdn.hipwallpaper.com/i/0/26/uNYMaD.jpeg">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">TO-DO APP</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'login' %}">Login<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signup' %}">Sign-up</a>
+        </li>
+        
+      </ul>
+      <span class="navbar-text">
+        <b>" Have A GOOD Intensions & WORK Hard "</b>
+     </span>
+    </div>
+  </nav>
+
+
+
+  {% csrf_token %}
+    <hgroup>
+      <b><i><u><legend><h1 style="color: #fb03bd;">Verify It's You !!</h1></legend></u></i></b>
+        {% if error %}
+        {% csrf_token %}
+        <h4>{{ error }}</h4>
+        {% endif %}
+    </hgroup>
+   
+    <br><br><br>
+
+    <div id="wrapper">
+    <form method="POST" action="{% url 'login' %}">
+      {% csrf_token %}
+        <div class="group">
+          <label>Username</label><br>
+            <input type="text" name="username" placeholder="User name"><span class="highlight"></span><span class="bar"></span>
+      
+        </div>
+        <div class="group">
+          <label>Password</label><br>
+            <input type="password" name="password" placeholder="Password"><span class="highlight"></span><span class="bar"></span>
+            
+        </div>
+      
+        <input type="submit" name="submit" value="Login"/>
+        <p>You Don't have an account !! <u><a style="color: #c8230e;" href="{% url 'signup' %}"> Try to sign up..</a></u></p>
+
+    </form>
+
+</div>
+<br><br><br><br><br><br><br><br>
+ 
+</body>
+
+</html>
+
