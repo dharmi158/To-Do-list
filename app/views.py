@@ -82,10 +82,6 @@ def add_todo(request):
             return render(request , 'index.html' , context={'form' : form})
         
 
-def delete_todo(request , id ):
-    print(id)
-    TODO.objects.get(pk = id).delete()
-    return redirect('home')
 
 def change_todo(request , id  , status):
     todo = TODO.objects.get(pk = id)
