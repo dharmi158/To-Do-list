@@ -64,7 +64,21 @@ def signup(request):
             return render(request , 'signup.html' , context=context)
 
 
-
+@login_required(login_url='login')
+def add_todo(request):
+    if request.user.is_authenticated:
+        user = request.user
+        print(user)
+        form = TODOForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            todo = form.save(commit=False)
+            todo.user = user
+            todo.save()
+            print(todo)
+            return redirect("home")
+        else: 
+            return render(request , 'index.html' , context={'form' : form})
 
 
 
