@@ -21,7 +21,7 @@ class TestProjectListPage(StaticLiveServerTestCase):
         self.browser.get('http://127.0.0.1:8000/signup/')
         self.browser.maximize_window() 
 
-        self.browser.find_element_by_name("username").send_keys("dhruv6")
+        self.browser.find_element_by_name("username").send_keys("dhruv")
         time.sleep(1)
         self.browser.find_element_by_name("password1").send_keys("dhr@12341")
         time.sleep(1)
@@ -31,14 +31,14 @@ class TestProjectListPage(StaticLiveServerTestCase):
         time.sleep(5)
 
 
-        self.browser.find_element_by_name("username").send_keys("dhruv6")
+        self.browser.find_element_by_name("username").send_keys("dhruv")
         time.sleep(1)
         self.browser.find_element_by_name("password").send_keys("dhr@12341")
         time.sleep(1)
         self.browser.find_element_by_class_name("btn").click()
         time.sleep(5)
 
-        self.browser.find_element_by_name("title").send_keys("xyz")
+        self.browser.find_element_by_name("title").send_keys("reading")
         time.sleep(1)
         self.browser.find_element_by_name("status").send_keys("COMPLETED")
         time.sleep(1)
