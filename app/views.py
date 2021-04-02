@@ -97,3 +97,9 @@ def change_todo(request , id  , status):
 def signout(request):
     logout(request)
     return redirect('login')
+
+def contact(request):
+    return render(request,'contact.html')
+
+def about(request):
+    return render(request,'about.html')
