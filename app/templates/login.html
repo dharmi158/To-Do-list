@@ -24,6 +24,11 @@
             <label for="id_password">Password:</label>
             <input type="password" name="password" class="form-control" id="id_password" required>
           </div>
+           <div class ="mt-4">
+             <div class="d-flex justify-content-center links">
+              forgot password? <a href="{% url 'reset_password %}" class="ml-2">reset</a>
+            </div>
+           </div>
   
           <input type="submit" class="btn btn-primary btn-sm" value="Login">
           
